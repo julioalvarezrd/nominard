@@ -1,10 +1,10 @@
 document.getElementById('calcular').addEventListener('click', function () {
 
-    
+
     const salario = parseFloat(document.getElementById('salario').value);
 
     if (isNaN(salario)) {
-        
+
         const resultadoHTML = `
             <div class="alert alert-danger">Por favor, ingrese un número válido como salario.</div>
         `;
@@ -56,26 +56,26 @@ document.getElementById('calcular').addEventListener('click', function () {
 
     `;
 
-        document.getElementById("AFPMensual").innerHTML = deduccionARSS.toLocaleString('es-DO', { style: 'currency', currency: 'DOP'});
+        document.getElementById("AFPMensual").innerHTML = deduccionARSS.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
         document.getElementById("SFSMensual").innerHTML = deduccionAFP.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
         document.getElementById("ISRMensual").innerHTML = impuestoISR.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
         document.getElementById("Deducciones").innerHTML = totalDeducciones.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
         document.getElementById("SalarioNeto").innerHTML = salarioNetoMensual.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })
-
+        document.getElementById("Quincenal").innerHTML = salarioNetoQuincenal.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })
 
         document.getElementById('resultado').innerHTML = resultadoHTML;
     }
 
-        // Agrega el botón en tu archivo JavaScript usando innerHTML
-        document.getElementById('resultado').innerHTML += `
+    // Agrega el botón en tu archivo JavaScript usando innerHTML
+    document.getElementById('resultado').innerHTML += `
         <div class="text-center mt-3">
         <button id="limpiarResultadosBtn" class="btn btn-danger mt-3">Limpiar Resultados</button>
         </div>
         `;
 
-        // Agrega un evento de clic al botón
-        document.getElementById('limpiarResultadosBtn').addEventListener('click', function () {
+    // Agrega un evento de clic al botón
+    document.getElementById('limpiarResultadosBtn').addEventListener('click', function () {
         document.getElementById('salario').value = ''; // Limpia el campo de salario
         document.getElementById('resultado').innerHTML = ''; // Limpia la sección de resultados
-        });
+    });
 });
