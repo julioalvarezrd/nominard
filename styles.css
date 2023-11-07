@@ -13,43 +13,46 @@ body {
 }
 
 img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
 
-.card{
+.card {
     margin-right: auto;
     margin-left: auto;
 }
 
-.container, .card{
+.container,
+.card {
     max-width: 540px !important;
 }
 
-.center-content, .table, .titulo {
+.center-content,
+.table,
+.titulo {
     text-align: center;
 }
 
-.resultado-neto{
+.resultado-neto {
     margin-top: 2%;
     color: #3077b5;
     font-weight: bold;
     font-size: 1.3em;
 }
 
-.space{
+.space {
     margin-right: 15px !important;
 }
 
-.textbox
-{
-    width:35% !important;
+.textbox {
+    width: 35% !important;
 }
 
-.table td, .table th{
+.table td,
+.table th {
     padding: 0 !important;
 }
 
-thead{
+thead {
     border-bottom: 1px solid rgba(255, 0, 0, 0.1);
 }
