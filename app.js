@@ -56,6 +56,13 @@ document.getElementById('calcular').addEventListener('click', function () {
 
     `;
 
+        document.getElementById("AFPMensual").innerHTML = deduccionARSS.toLocaleString('es-DO', { style: 'currency', currency: 'DOP'});
+        document.getElementById("SFSMensual").innerHTML = deduccionAFP.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
+        document.getElementById("ISRMensual").innerHTML = impuestoISR.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
+        document.getElementById("Deducciones").innerHTML = totalDeducciones.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
+        document.getElementById("SalarioNeto").innerHTML = salarioNetoMensual.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })
+
+
         document.getElementById('resultado').innerHTML = resultadoHTML;
     }
 
