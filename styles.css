@@ -63,10 +63,15 @@ body {
 
 }
 
+.bold{
+    font-weight: bold;
+    text-align: center;
+}
+
 h1 {
     color: #127AC1;
-    font-weight: bold;
-    font-size: 1em;
+    
+    font-size: 1.5em;
 
 }
 
