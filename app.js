@@ -9,7 +9,7 @@ document.getElementById('calcular').addEventListener('click', function () {
             <div class="alert alert-danger">Por favor, ingrese un número válido como salario.</div>
         `;
 
-        document.getElementById('resultado').innerHTML = resultadoHTML;
+        document.getElementById('erroringreso').innerHTML = resultadoHTML;
 
     } else {
 
@@ -43,17 +43,20 @@ document.getElementById('calcular').addEventListener('click', function () {
         const salarioNetoQuincenal = salarioNetoMensual / 2;
         const salarioBrutoQuincenal = salario / 2;
 
-        const resultadoHTML = `
-        <h2 align="center">Detalles de la Nómina</h2>
-        <p>Salario Bruto Mensual: ${salario.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
-        <p>Salario Bruto Quincenal: ${salarioBrutoQuincenal.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
-        <p>Seguro (ARS): ${deduccionARSS.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
-        <p>Pensiones (AFP): ${deduccionAFP.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
-        <p>Impuesto Sobre la Renta (ISR): ${impuestoISR.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
-        <p>Total de Deducciones: ${totalDeducciones.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
-        <p>Salario Neto Mensual: ${salarioNetoMensual.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
-        <p>Salario Neto Quincenal: ${salarioNetoQuincenal.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
+        //const resultadoHTML = `
+        //<h2 align="center">Detalles de la Nómina</h2> 
+        // <p>Salario Bruto Mensual: ${salario.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
+        // <p>Salario Bruto Quincenal: ${salarioBrutoQuincenal.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
+        // <p>Seguro (ARS): ${deduccionARSS.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
+        // <p>Pensiones (AFP): ${deduccionAFP.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
+        // <p>Impuesto Sobre la Renta (ISR): ${impuestoISR.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
+        // <p>Total de Deducciones: ${totalDeducciones.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
+        // <p>Salario Neto Mensual: ${salarioNetoMensual.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
+        // <p>Salario Neto Quincenal: ${salarioNetoQuincenal.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })}</p>
 
+        //`;
+
+        const resultadoHTML = `
     `;
 
         document.getElementById("AFPMensual").innerHTML = deduccionARSS.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
@@ -76,6 +79,13 @@ document.getElementById('calcular').addEventListener('click', function () {
     // Agrega un evento de clic al botón
     document.getElementById('limpiarResultadosBtn').addEventListener('click', function () {
         document.getElementById('salario').value = ''; // Limpia el campo de salario
-        document.getElementById('resultado').innerHTML = ''; // Limpia la sección de resultados
+        document.getElementById('AFPMensual').innerHTML = ''; // Limpia la sección de resultados
+        document.getElementById("SFSMensual").innerHTML = '';
+        document.getElementById("ISRMensual").innerHTML = '';
+        document.getElementById("Deducciones").innerHTML = '';
+        document.getElementById("SalarioNeto").innerHTML = '';
+        document.getElementById("Quincenal").innerHTML = '';
+        document.getElementById('resultado').innerHTML = '';
+        document.getElementById('erroringreso').innerHTML = '';
     });
 });
