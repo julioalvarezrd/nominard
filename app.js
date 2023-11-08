@@ -59,6 +59,7 @@ document.getElementById('calcular').addEventListener('click', function () {
         const resultadoHTML = `
     `;
 
+
         document.getElementById("AFPMensual").innerHTML = deduccionARSS.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
         document.getElementById("SFSMensual").innerHTML = deduccionAFP.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
         document.getElementById("ISRMensual").innerHTML = impuestoISR.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
