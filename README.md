@@ -1,17 +1,25 @@
-# NominaRD - Calculadora de deducciones.
+# NominaRD - Calculadora de Deducciones
 
-Calcula el AFP, SFS y ISR de un salario, retorna salario neto mensual y quincenal.
+NominaRD es una herramienta que te permite calcular las deducciones de tu salario, incluyendo AFP (Administradora de Fondos de Pensiones), SFS (Seguro de Salud) e ISR (Impuesto sobre la Renta). Con esta calculadora, podrás obtener tu salario neto tanto en términos mensuales como quincenales.
 
-Github page: https://julioalvarezrd.github.io/nominard/
+Para más información y acceso a la herramienta, visita nuestra página en GitHub:
 
-## Getting started
+[![GitHub Page](https://julioalvarezrd.github.io/nominard/)](https://julioalvarezrd.github.io/nominard/)
 
-- Download/Clone the project
-- Open the file Index.html
+## Cómo Empezar
 
-## Build with
+Sigue estos pasos para empezar a utilizar NominaRD:
+
+1. Descarga o clona el proyecto en tu ordenador.
+2. Abre el archivo Index.html en tu navegador web.
+
+## Tecnologías Utilizadas
+
+NominaRD está construido utilizando las siguientes tecnologías:
 
 - HTML
-- Javascript
-- Css
-- Bootstrap library.
+- JavaScript
+- CSS
+- Biblioteca Bootstrap
+
+¡Comienza a calcular tus deducciones salariales de manera rápida y sencilla con NominaRD!
