@@ -6,7 +6,7 @@ document.getElementById('calcular').addEventListener('click', function () {
     if (isNaN(salario)) {
 
         const resultadoHTML = `
-            <div class="alert alert-danger">Por favor, ingrese un número válido como salario.</div>
+            <div class="alert alert-warning" role="alert">Por favor, ingrese un número válido como salario.</div>
         `;
 
         document.getElementById('erroringreso').innerHTML = resultadoHTML;
