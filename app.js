@@ -23,6 +23,21 @@ document.getElementById('calcular').addEventListener('click', function () {
         let deduccionARSS = salario * tasaARSS;
         let deduccionAFP = salario * tasaAFP;
 
+
+        if (salario > 312000) {
+            deduccionAFP = 8954.40
+        }
+
+        if (salario > 156000) {
+            deduccionARSS = 4742.40
+        }
+
+
+
+
+
+
+
         let baseImponible = (salario - deduccionARSS - deduccionAFP) * 12;
         let impuestoISR = 0;
 
@@ -60,8 +75,8 @@ document.getElementById('calcular').addEventListener('click', function () {
     `;
 
 
-        document.getElementById("AFPMensual").innerHTML = deduccionARSS.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
-        document.getElementById("SFSMensual").innerHTML = deduccionAFP.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
+        document.getElementById("AFPMensual").innerHTML = deduccionAFP.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
+        document.getElementById("SFSMensual").innerHTML = deduccionARSS.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
         document.getElementById("ISRMensual").innerHTML = impuestoISR.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
         document.getElementById("Deducciones").innerHTML = totalDeducciones.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
         document.getElementById("SalarioNeto").innerHTML = salarioNetoMensual.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })
