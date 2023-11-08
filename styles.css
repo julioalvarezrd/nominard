@@ -54,11 +54,11 @@ body {
 }
 
 
-#imglogo {
+.imglogo {
 
     color: #127AC1;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 1.5em;
 
 
 }
