@@ -65,7 +65,7 @@ document.getElementById('calcular').addEventListener('click', function () {
         document.getElementById("Deducciones").innerHTML = totalDeducciones.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
         document.getElementById("SalarioNeto").innerHTML = salarioNetoMensual.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })
         document.getElementById("Quincenal").innerHTML = salarioNetoQuincenal.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' })
-
+        document.getElementById('erroringreso').innerHTML = ''; //Quita advertenvcia de error 
         document.getElementById('resultado').innerHTML = resultadoHTML;
     }
 
@@ -86,6 +86,6 @@ document.getElementById('calcular').addEventListener('click', function () {
         document.getElementById("SalarioNeto").innerHTML = '';
         document.getElementById("Quincenal").innerHTML = '';
         document.getElementById('resultado').innerHTML = '';
-        document.getElementById('erroringreso').innerHTML = '';
+        document.getElementById('erroringreso').innerHTML = ''; // Quita advertencia de error 
     });
 });
