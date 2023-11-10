@@ -1,46 +1,36 @@
 document.getElementById('calcular').addEventListener('click', function () {
 
-
-    const salario = parseFloat(document.getElementById('salario').value);
+    const salario = parseFloat(document.getElementById('salario').value); //Obtener el valior de input text
 
     if (isNaN(salario)) {
-
         const resultadoHTML = `
             <div class="alert alert-warning" role="alert">Por favor, ingrese un número válido como salario.</div>
         `;
-
         document.getElementById('erroringreso').innerHTML = resultadoHTML;
-
-    } else {
-
-
+    }
+    else {
         const tasaARSS = 0.0304; // Tasa de ARS (Seguro Nacional de Salud)
         const tasaAFP = 0.0287; // Tasa de AFP (Pensiones)
-        const excedenteISR1 = 416220.01;
-        const excedenteISR2 = 624329.01;
-        const excedenteISR3 = 867123.01;
+        const excedenteISR1 = 416220.01; //Escala-1 de ISR 
+        const excedenteISR2 = 624329.01; //Escala-2 de ISR 
+        const excedenteISR3 = 867123.01; //Escala-3 de ISR 
 
-        let deduccionARSS = salario * tasaARSS;
-        let deduccionAFP = salario * tasaAFP;
+        let deduccionARSS = salario * tasaARSS; //Calculo de Seguro Familiar de Salud
+        let deduccionAFP = salario * tasaAFP;   //Calculo de AFP
 
 
         if (salario > 312000) {
-            deduccionAFP = 8954.40
+            deduccionAFP = 8954.40  //Tope de AFP
         }
 
         if (salario > 156000) {
-            deduccionARSS = 4742.40
+            deduccionARSS = 4742.40 //Tope de Seguro Familiar de Salud
         }
-
-
-
-
-
-
 
         let baseImponible = (salario - deduccionARSS - deduccionAFP) * 12;
         let impuestoISR = 0;
 
+        //Retencion de ISR segun la Escala que corresponda
         if (baseImponible > excedenteISR3) {
             impuestoISR = (((baseImponible - excedenteISR3) * 0.25) + 79776) / 12;
         }
@@ -73,7 +63,6 @@ document.getElementById('calcular').addEventListener('click', function () {
 
         const resultadoHTML = `
     `;
-
 
         document.getElementById("AFPMensual").innerHTML = deduccionAFP.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
         document.getElementById("SFSMensual").innerHTML = deduccionARSS.toLocaleString('es-DO', { style: 'currency', currency: 'DOP' });
