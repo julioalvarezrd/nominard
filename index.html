@@ -27,7 +27,7 @@
     <meta name="twitter:description"
         content="Calculadora de nómina para calcular tu salario mensual en República Dominicana. Incluye impuesto sobre la renta (ISR), seguro de salud (ARS), pensiones y deducciones salariales.">
     <meta name="twitter:image" content="https://julioalvarezrd.github.io/nominard/img/logo.svg">
-
+    <link rel="manifest" href="/manifest.json" />
     <title>NominaRD - Calculadora de Salario</title>
 
 </head>
@@ -124,6 +124,15 @@
                 </p>
             </footer>
             <script src="app.js"></script>
+            <script>
+                window.addEventListener('load', function () {
+                    if (window.matchMedia('(display-mode: browser)').matches) {
+                        if (window.confirm('¿Desea agregar un acceso directo a la pantalla de inicio?')) {
+                            // Código para agregar el acceso directo
+                        }
+                    }
+                });
+            </script>
 </body>
 
 </html>
