@@ -1,4 +1,37 @@
+let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      // Muestra un botón o mensaje para invitar a instalar la PWA
+      // Ejemplo: mostrar un botón con id="installButton"
+      document.getElementById('installButton').style.display = 'block';
+    });
+    
+    document.getElementById('installButton').addEventListener('click', () => {
+      // Oculta el botón de instalación
+      document.getElementById('installButton').style.display = 'none';
+      // Muestra el prompt de instalación
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('Usuario aceptó la instalación');
+        } else {
+          console.log('Usuario rechazó la instalación');
+        }
+        deferredPrompt = null;
+      });
+    });
+
+
+
+
+
+
 document.getElementById('calcular').addEventListener('click', function () {
+
+
+
 
     const salario = parseFloat(document.getElementById('salario').value); //Obtener el valior de input text
 
@@ -94,30 +127,7 @@ document.getElementById('calcular').addEventListener('click', function () {
         document.getElementById('erroringreso').innerHTML = ''; // Quita advertencia de error 
     });
 
-    let deferredPrompt;
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      // Muestra un botón o mensaje para invitar a instalar la PWA
-      // Ejemplo: mostrar un botón con id="installButton"
-      document.getElementById('installButton').style.display = 'block';
-    });
     
-    document.getElementById('installButton').addEventListener('click', () => {
-      // Oculta el botón de instalación
-      document.getElementById('installButton').style.display = 'none';
-      // Muestra el prompt de instalación
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('Usuario aceptó la instalación');
-        } else {
-          console.log('Usuario rechazó la instalación');
-        }
-        deferredPrompt = null;
-      });
-    });
     
 
 
