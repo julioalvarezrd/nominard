@@ -29,20 +29,20 @@
     <meta name="twitter:description"
         content="Calculadora de nómina para calcular tu salario mensual en República Dominicana. Incluye impuesto sobre la renta (ISR), seguro de salud (ARS), pensiones y deducciones salariales.">
     <meta name="twitter:image" content="https://julioalvarezrd.github.io/nominard/img/logo.svg">
- 
+
     <link rel="manifest" href="/nominard/manifest.json">
- 
+
     <script>
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/nominard/service-worker.js')
-                    .then(function (registration) {
-                        console.log('Service Worker registrado con éxito:', registration);
-                    })
-                    .catch(function (error) {
-                        console.error('Error al registrar el Service Worker:', error);
-                    });
-            }
-        </script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/nominard/service-worker.js')
+                .then(function (registration) {
+                    console.log('Service Worker registrado con éxito:', registration);
+                })
+                .catch(function (error) {
+                    console.error('Error al registrar el Service Worker:', error);
+                });
+        }
+    </script>
 
 
 
@@ -85,6 +85,7 @@
                     placeholder="Salario Mensual RD$" onkeydown="realizarCalculo(event)">
                 <div class="input-group-append">
                     <button id="calcular" class="btn btn-primary" type="button">Calcular</button>
+                    <button id="installButton" style="display: none;">Instalar</button>
                 </div>
             </div>
 
@@ -140,7 +141,7 @@
                     </div>
                 </div>
             </div>
-            <button id="installButton" style="display: none;">Instalar</button>
+
 
             <footer class="text-center mt-5">
                 <p>By <a href="https://twitter.com/julioalvarezrd" target="_blank">Julio Alvarez</a>. Hecho con
