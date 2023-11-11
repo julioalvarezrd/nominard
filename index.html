@@ -1,130 +1,140 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description"
-        content="Calculadora de nómina para calcular tu salario mensual en República Dominicana. Incluye impuesto sobre la renta (ISR), seguro de salud (ARS), pensiones y deducciones salariales.">
+        <meta name="google-site-verification"
+            content="HFbqQlBHeGDr0HkBKo56vk6kGnINUsNvEI8Zhq7sPe4" />
+        <meta name="description"
+            content="Calculadora de nómina para calcular tu salario mensual en República Dominicana. Incluye impuesto sobre la renta (ISR), seguro de salud (ARS), pensiones y deducciones salariales.">
 
-    <meta name="keywords"
-        content="cálculo de nómina, Calculo de deducciones, salario en República Dominicana, Calculadora de Impuestos, calculadora salarial, NominaRD, impuesto sobre la renta en RD, Seguro Nacional de Salud en RD, pensiones en República Dominicana, deducciones salariales en RD, salario bruto y neto en RD, sueldo mínimo en República Dominicana">
+        <meta name="keywords"
+            content="cálculo de nómina, Calculo de deducciones, salario en República Dominicana, Calculadora de Impuestos, calculadora salarial, NominaRD, impuesto sobre la renta en RD, Seguro Nacional de Salud en RD, pensiones en República Dominicana, deducciones salariales en RD, salario bruto y neto en RD, sueldo mínimo en República Dominicana">
 
-    <link rel="icon" href="img/logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="img/logo.svg" type="image/x-icon">
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
 
-    <meta property="og:title" content="NominaRD - Calculadora de Salario">
-    <meta property="og:description"
-        content="Calculadora de nómina para calcular tu salario mensual en República Dominicana. Incluye impuesto sobre la renta (ISR), seguro de salud (ARS), pensiones y deducciones salariales.">
-    <meta property="og:image" content="https://julioalvarezrd.github.io/nominard/img/logo.svg">
-    <meta property="og:url" content="https://julioalvarezrd.github.io/nominard">
-    <meta property="og:type" content="website">
+        <meta property="og:title" content="NominaRD - Calculadora de Salario">
+        <meta property="og:description"
+            content="Calculadora de nómina para calcular tu salario mensual en República Dominicana. Incluye impuesto sobre la renta (ISR), seguro de salud (ARS), pensiones y deducciones salariales.">
+        <meta property="og:image"
+            content="https://julioalvarezrd.github.io/nominard/img/logo.svg">
+        <meta property="og:url"
+            content="https://julioalvarezrd.github.io/nominard">
+        <meta property="og:type" content="website">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="NominaRD - Calculadora de Salario">
-    <meta name="twitter:description"
-        content="Calculadora de nómina para calcular tu salario mensual en República Dominicana. Incluye impuesto sobre la renta (ISR), seguro de salud (ARS), pensiones y deducciones salariales.">
-    <meta name="twitter:image" content="https://julioalvarezrd.github.io/nominard/img/logo.svg">
-    <link rel="manifest" href="/manifest.json" />
-    <title>NominaRD - Calculadora de Salario</title>
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="NominaRD - Calculadora de Salario">
+        <meta name="twitter:description"
+            content="Calculadora de nómina para calcular tu salario mensual en República Dominicana. Incluye impuesto sobre la renta (ISR), seguro de salud (ARS), pensiones y deducciones salariales.">
+        <meta name="twitter:image"
+            content="https://julioalvarezrd.github.io/nominard/img/logo.svg">
+        <link rel="manifest" href="/manifest.json" />
+        <title>NominaRD - Calculadora de Salario</title>
 
-</head>
+    </head>
 
-<body>
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand imglogo" href="/nominard">
-                <img src="img/logo.svg" alt="logo_nominard" width="30" height="30"
-                    class="d-inline-block align-text-top">
-                NominaRD
-            </a>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="text-center mt-4">
-            <div class="row justify-content-around">
-                <div>
-                    <h1>Cálculo de Deducciones</h1>
-                    <h2>República Dominicana</h2>
-                </div>
-
+    <body>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand imglogo" href="/nominard">
+                    <img src="img/logo.svg" alt="logo_nominard" width="30"
+                        height="30"
+                        class="d-inline-block align-text-top">
+                    NominaRD
+                </a>
             </div>
-        </div>
+        </nav>
 
-        <div class="form-group mt-4">
+        <div class="container">
+            <div class="text-center mt-4">
+                <div class="row justify-content-around">
+                    <div>
+                        <h1>Cálculo de Deducciones</h1>
+                        <h2>República Dominicana</h2>
+                    </div>
 
-            <div class="input-group mb-2">
-                <div class="input-group-prepend">
-                    <div class="input-group-text bold">RD$</div>
-                </div>
-                <input type="text" id="salario" class="form-control textbox" inputmode="numeric" pattern="[0-9]*"
-                    placeholder="Salario Mensual RD$" onkeydown="realizarCalculo(event)">
-                <div class="input-group-append">
-                    <button id="calcular" class="btn btn-primary" type="button">Calcular</button>
                 </div>
             </div>
 
-            <div id="erroringreso" class="mt-3"></div>
+            <div class="form-group mt-4">
 
-            <div class="card">
-                <div class="card-header bold">
-                    Resultados
-                </div>
-
-                <div class="card-body">
-                    <div class="center-content bottom-border">
-                        <span class="resultado-neto" id="SalarioNeto"></span><br>
-                        <span class="small">Pago mensual</span><br>
-                        <span class="small">(<span id="Quincenal"></span>
-                            Salario Quincenal)</span>
-
-                        <hr>
-                        <table class="table table-borderless">
-                            <tbody>
-                                <tr>
-                                    <th id="AFPMensual"></th>
-                                    <th id="SFSMensual"></th>
-                                </tr>
-
-                                <tr>
-                                    <td class="small">AFP Fondos<br>de
-                                        pensiones</td>
-                                    <td class="small">SFS Seguro<br>Familiar
-                                        de Salud</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-
-                        <hr>
-                        <table class="table table-borderless">
-                            <tbody>
-                                <tr>
-                                    <th id="ISRMensual"></th>
-                                    <th id="Deducciones"></th>
-                                </tr>
-                                <tr>
-                                    <td class="small">ISR Impuestos<br>Sobre
-                                        La Renta</td>
-                                    <td class="small">Total de <br>Deducciones</td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div id="resultado" class="mt-3"></div>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bold">RD$</div>
+                    </div>
+                    <input type="text" id="salario" class="form-control textbox"
+                        inputmode="numeric" pattern="[0-9]*"
+                        placeholder="Salario Mensual RD$"
+                        onkeydown="realizarCalculo(event)">
+                    <div class="input-group-append">
+                        <button id="calcular" class="btn btn-primary"
+                            type="button">Calcular</button>
                     </div>
                 </div>
-            </div>
-            <footer class="text-center mt-5">
-                <p>By <a href="https://twitter.com/julioalvarezrd" target="_blank">Julio Alvarez</a>. Hecho con
-                    &#x2764;
-                </p>
-            </footer>
-            <script src="app.js"></script>
 
-</body>
+                <div id="erroringreso" class="mt-3"></div>
 
-</html>
+                <div class="card">
+                    <div class="card-header bold">
+                        Resultados
+                    </div>
+
+                    <div class="card-body">
+                        <div class="center-content bottom-border">
+                            <span class="resultado-neto" id="SalarioNeto"></span><br>
+                            <span class="small">Pago mensual</span><br>
+                            <span class="small">(<span id="Quincenal"></span>
+                                Salario Quincenal)</span>
+
+                            <hr>
+                            <table class="table table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <th id="AFPMensual"></th>
+                                        <th id="SFSMensual"></th>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="small">AFP Fondos<br>de
+                                            pensiones</td>
+                                        <td class="small">SFS Seguro<br>Familiar
+                                            de Salud</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                            <hr>
+                            <table class="table table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <th id="ISRMensual"></th>
+                                        <th id="Deducciones"></th>
+                                    </tr>
+                                    <tr>
+                                        <td class="small">ISR Impuestos<br>Sobre
+                                            La Renta</td>
+                                        <td class="small">Total de <br>Deducciones</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div id="resultado" class="mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <footer class="text-center mt-5">
+                    <p>By <a href="https://twitter.com/julioalvarezrd"
+                            target="_blank">Julio Alvarez</a>. Hecho con
+                        &#x2764;
+                    </p>
+                </footer>
+                <script src="app.js"></script>
+
+            </body>
+
+        </html>
