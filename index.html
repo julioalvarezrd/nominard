@@ -66,6 +66,12 @@
 
     <div class="container">
         <div class="text-center mt-4">
+            <div class="alert alert-info text-center" style="display: none" id="installButton" role="alert">
+                <button class="btn btn-link text-center" id="installButton" ;">Click aqui para
+                    Instalar</button>
+
+            </div>
+
             <div class="row justify-content-around">
                 <div>
                     <h1>Cálculo de Deducciones</h1>
@@ -85,7 +91,6 @@
                     placeholder="Salario Mensual RD$" onkeydown="realizarCalculo(event)">
                 <div class="input-group-append">
                     <button id="calcular" class="btn btn-primary" type="button">Calcular</button>
-                    <button id="installButton" style="display: none;">Instalar</button>
                 </div>
             </div>
 
