@@ -1,6 +1,6 @@
 {
-    "name": "Nominard",
-    "short_name": "Nominard",
+    "name": "NominaRD",
+    "short_name": "NominaRD",
     "description": "Calculadora de nómina para calcular tu salario mensual en República Dominicana. Incluye impuesto sobre la renta (ISR), seguro de salud (ARS), pensiones y deducciones salariales.",
     "start_url": "/nominard",
     "display": "standalone",
