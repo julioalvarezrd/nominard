@@ -4,113 +4,158 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Calculadora de nómina de República Dominicana con AFP, SFS, ISR, propinas y comisiones.">
-  <meta name="theme-color" content="#082a49">
+  <meta name="theme-color" content="#f7f8fb">
   <title>NóminaRD · Calculadora de nómina</title>
   <link rel="icon" href="img/logo.svg">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page-shell">
-    <header class="topbar">
-      <a class="brand" href="./">
-        <img src="img/logo.svg" alt="Logo NóminaRD">
-        <span><strong>Nómina</strong><em>RD</em><small>Calculadora de nómina en República Dominicana</small></span>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="Inicio NóminaRD">
+        <img src="img/logo.svg" alt="">
+        <span>Nómina<strong>RD</strong></span>
       </a>
-      <nav>
-        <a class="active" href="#calculadora">⌂ Calculadora</a>
-        <a href="#tablas">▦ Tablas</a>
-        <a href="#informacion">ⓘ Información</a>
-        <a href="#preguntas">? Preguntas</a>
-        <a href="#acerca">ⓘ Acerca de</a>
-      </nav>
-      <div class="top-actions"><span class="theme-pill">◐ ☀</span><span class="app-chip">NóminaRD</span></div>
-    </header>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambiar tema" title="Cambiar tema">
+        <span class="theme-icon" aria-hidden="true">☾</span>
+        <span class="theme-label">Oscuro</span>
+      </button>
+    </div>
+  </header>
 
-    <main>
-      <section class="hero">
-        <div class="hero-copy">
-          <h1>Calcula tu nómina de forma <span>simple, rápida y confiable</span></h1>
-          <p>Conforme a las leyes y normativas vigentes de la República Dominicana.</p>
-          <div class="hero-features">
-            <article><i>▦</i><div><strong>Cálculos actualizados</strong><small>ISR, TSS, AFP, SFS y más.</small></div></article>
-            <article><i>◉</i><div><strong>Incluye propinas y comisiones</strong><small>Todo en un solo lugar.</small></div></article>
-            <article><i>◆</i><div><strong>Resultados claros</strong><small>Desglose detallado y exportable.</small></div></article>
+  <main class="container main-content">
+    <section class="intro">
+      <span class="eyebrow">Calculadora de nómina · República Dominicana</span>
+      <h1>Calcula tu salario neto de forma simple.</h1>
+      <p>Ingresa tus datos mensuales y obtén una estimación clara de AFP, SFS, ISR y salario neto.</p>
+    </section>
+
+    <section class="calculator-layout" id="calculadora">
+      <form id="payrollForm" class="surface form-card">
+        <div class="section-heading">
+          <div>
+            <span class="step">01</span>
+            <h2>Ingresos mensuales</h2>
+          </div>
+          <span class="year-badge">2026</span>
+        </div>
+
+        <div class="field-grid">
+          <label class="field field-wide">
+            <span>Salario base <small>RD$</small></span>
+            <input id="salary" inputmode="decimal" placeholder="45,000.00" autocomplete="off" required>
+          </label>
+          <label class="field">
+            <span>Propinas <small>RD$</small></span>
+            <input id="tips" inputmode="decimal" placeholder="0.00" autocomplete="off">
+          </label>
+          <label class="field">
+            <span>Comisiones <small>RD$</small></span>
+            <input id="commissions" inputmode="decimal" placeholder="0.00" autocomplete="off">
+          </label>
+          <label class="field field-wide">
+            <span>Otros ingresos gravados <small>RD$</small></span>
+            <input id="otherIncome" inputmode="decimal" placeholder="0.00" autocomplete="off">
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="primary-btn">Calcular nómina</button>
+          <button type="reset" class="ghost-btn">Limpiar</button>
+        </div>
+
+        <p class="form-note">Las comisiones se consideran en la base cotizable de TSS. Propinas y otros ingresos gravados se toman en cuenta para ISR según corresponda.</p>
+      </form>
+
+      <section class="surface result-card" aria-live="polite">
+        <div class="section-heading">
+          <div>
+            <span class="step">02</span>
+            <h2>Resultado</h2>
+          </div>
+          <span class="status-dot"><i></i> Estimación</span>
+        </div>
+
+        <div class="net-summary">
+          <span>Salario neto estimado</span>
+          <strong id="net">RD$ 0.00</strong>
+          <small>Pago quincenal: <b id="fortnight">RD$ 0.00</b></small>
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-box positive">
+            <span>Ingresos</span>
+            <strong id="gross">RD$ 0.00</strong>
+          </div>
+          <div class="summary-box negative">
+            <span>Deducciones</span>
+            <strong id="deductions">RD$ 0.00</strong>
           </div>
         </div>
-        <div class="hero-signature"><strong>La Romana</strong><span>Tierra de historia, trabajo<br>y progreso 🇩🇴</span></div>
-      </section>
 
-      <section id="calculadora" class="calculator-grid">
-        <form id="payrollForm" class="card input-card">
-          <div class="card-title"><span class="title-icon blue">👤</span><h2>1. Datos del empleado</h2></div>
-          <label>Salario base mensual (RD$)<input id="salary" inputmode="decimal" placeholder="45,000.00" required></label>
-          <label>Propinas mensuales (RD$)<span class="info">ⓘ</span><input id="tips" inputmode="decimal" placeholder="0.00"></label>
-          <label>Comisiones mensuales (RD$)<span class="info">ⓘ</span><input id="commissions" inputmode="decimal" placeholder="0.00"></label>
-          <label>Otros ingresos gravados (RD$)<span class="info">ⓘ</span><input id="otherIncome" inputmode="decimal" placeholder="0.00"></label>
-          <label>Tipo de empleado<span class="info">ⓘ</span><select><option>Empleado privado (TSS)</option></select></label>
-          <label>Cantidad de dependientes<span class="info">ⓘ</span><select><option>0</option></select></label>
-        </form>
-
-        <section class="card action-card">
-          <div class="card-title"><span class="title-icon green">▦</span><h2>2. Cálculo de nómina</h2></div>
-          <div class="segment"><button type="button" class="selected">Mensual</button><button type="button">Anual</button></div>
-          <div class="action-space"></div>
-          <button form="payrollForm" type="submit" class="primary">▦ Calcular nómina</button>
-          <button form="payrollForm" type="reset" class="secondary">↻ Limpiar campos</button>
-        </section>
-
-        <section class="card result-card">
-          <div class="card-title result-head"><span class="title-icon cyan">↗</span><h2>3. Resultado</h2><div><small>Octubre 2026</small><b>Nómina Mensual</b></div></div>
-          <div class="net-box"><span>💼</span><div><small>Salario neto</small><strong id="net">RD$ 0.00</strong></div></div>
-          <div class="result-columns">
-            <div class="breakdown income"><h3>Ingresos <strong id="gross">RD$ 0.00</strong></h3><p>Salario base <span id="rSalary">RD$ 0.00</span></p><p>Propinas <span id="rTips">RD$ 0.00</span></p><p>Comisiones <span id="rCommissions">RD$ 0.00</span></p><p>Otros ingresos <span id="rOther">RD$ 0.00</span></p></div>
-            <div class="breakdown deductions"><h3>Deducciones <strong id="deductions">RD$ 0.00</strong></h3><p>AFP (2.87%) <span id="afp">RD$ 0.00</span></p><p>SFS (3.04%) <span id="sfs">RD$ 0.00</span></p><p>ISR <span id="isr">RD$ 0.00</span></p><p>Otros descuentos <span>RD$ 0.00</span></p></div>
+        <div class="breakdown-list">
+          <div class="breakdown-group">
+            <h3>Ingresos</h3>
+            <p><span>Salario base</span><b id="rSalary">RD$ 0.00</b></p>
+            <p><span>Propinas</span><b id="rTips">RD$ 0.00</b></p>
+            <p><span>Comisiones</span><b id="rCommissions">RD$ 0.00</b></p>
+            <p><span>Otros ingresos</span><b id="rOther">RD$ 0.00</b></p>
           </div>
-          <div class="net-strip"><span>Salario neto</span><strong id="netStrip">RD$ 0.00</strong></div>
-          <div class="result-bottom">
-            <div class="donut"><div><small>Ingresos</small><strong id="grossDonut">RD$ 0</strong></div></div>
-            <div class="legend"><p><i class="dot d1"></i>Salario base</p><p><i class="dot d2"></i>Propinas</p><p><i class="dot d3"></i>Comisiones</p><p><i class="dot d4"></i>Otros</p></div>
-            <div class="result-actions"><button type="button">▣ Descargar PDF</button><button type="button" class="outline">⌯ Compartir resultado</button><details><summary>☷ Ver detalle del cálculo</summary><p>Base cotizable TSS: <b id="tssBase">RD$ 0.00</b></p><p>Base mensual estimada para ISR: <b id="isrBase">RD$ 0.00</b></p><p>Neto quincenal estimado: <b id="fortnight">RD$ 0.00</b></p></details></div>
+
+          <div class="breakdown-group">
+            <h3>Deducciones</h3>
+            <p><span>AFP <small>2.87%</small></span><b id="afp">RD$ 0.00</b></p>
+            <p><span>SFS <small>3.04%</small></span><b id="sfs">RD$ 0.00</b></p>
+            <p><span>ISR</span><b id="isr">RD$ 0.00</b></p>
           </div>
-        </section>
-      </section>
+        </div>
 
-      <section id="informacion" class="feature-row">
-        <article><span>🍴</span><strong>Propinas y comisiones</strong><p>Incluidas en el cálculo del ISR según la normativa vigente.</p></article>
-        <article id="tablas"><span>▦</span><strong>Tablas actualizadas</strong><p>Topes y porcentajes conforme a la ley.</p></article>
-        <article><span>▤</span><strong>Detalle del cálculo</strong><p>Visualiza cada paso del cálculo de forma transparente.</p></article>
-        <article><span>⇧</span><strong>Exporta y comparte</strong><p>Guarda en PDF o comparte el resultado fácilmente.</p></article>
-        <article><span>▯</span><strong>Diseño responsivo</strong><p>Funciona perfecto en computadoras, tablets y móviles.</p></article>
+        <details class="details-card">
+          <summary>Ver detalle del cálculo</summary>
+          <div class="detail-lines">
+            <p><span>Base cotizable TSS</span><b id="tssBase">RD$ 0.00</b></p>
+            <p><span>Base mensual estimada para ISR</span><b id="isrBase">RD$ 0.00</b></p>
+          </div>
+        </details>
       </section>
-    </main>
+    </section>
 
-    <footer class="site-footer" id="acerca">
-      <img class="church-art" src="img/iglesia-la-romana.svg" alt="Ilustración de iglesia de La Romana">
-      <div class="footer-top">
-        <section class="footer-brand">
-          <div class="mini-brand"><img src="img/logo.svg" alt=""><strong>Nómina<span>RD</span></strong></div>
-          <p>Calculadora de nómina en República Dominicana</p>
-          <p>📍 La Romana, República Dominicana</p>
-          <em>Herramientas simples para un trabajo más eficiente.</em>
-        </section>
-        <section class="footer-notice" id="aviso">
-          <b>ⓘ &nbsp; Aviso importante</b>
-          <p>Esta herramienta ofrece estimaciones con fines informativos. No sustituye la orientación de un profesional contable, fiscal o laboral. Para decisiones financieras o fiscales relevantes, consulta con un especialista calificado.</p>
-        </section>
-        <section class="footer-links">
-          <div><a href="#tablas">Tablas</a><a href="#informacion">Información</a><a href="#preguntas">Preguntas</a><a href="#acerca">Acerca de</a></div>
-          <div class="social">◉ &nbsp; in &nbsp; ✉</div>
-        </section>
+    <section class="info-strip" id="informacion">
+      <article>
+        <span>Actualizado</span>
+        <strong>Parámetros 2026</strong>
+        <p>Topes y porcentajes centralizados para facilitar futuras actualizaciones.</p>
+      </article>
+      <article>
+        <span>Privado</span>
+        <strong>Todo ocurre en tu navegador</strong>
+        <p>La información ingresada no se envía a un servidor.</p>
+      </article>
+      <article>
+        <span>Responsive</span>
+        <strong>Diseñado para móvil</strong>
+        <p>Interfaz pensada para funcionar igual de bien en teléfono, tablet y computadora.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="footer-brand" href="./">Nómina<strong>RD</strong></a>
+        <p>Calculadora de nómina para República Dominicana.</p>
       </div>
-      <div class="footer-line"></div>
-      <div class="footer-bottom">
-        <span>© 2026 Nomina RD – Todos los derechos reservados.</span>
-        <span>Desarrollado con ❤️ por <a href="https://julioalvarezrd.github.io/">Julio Alvarez</a></span>
-        <span>🌴 &nbsp; La Romana, siempre hacia adelante.</span>
+      <div class="disclaimer">
+        <strong>Aviso</strong>
+        <p>Los resultados son estimaciones de carácter informativo y no sustituyen asesoría contable, fiscal o laboral profesional.</p>
       </div>
-    </footer>
-  </div>
+      <div class="footer-meta">
+        <span>© 2026 Nomina RD</span>
+        <a href="https://julioalvarezrd.github.io/">Made with ❤️ by Julio Alvarez</a>
+      </div>
+    </div>
+  </footer>
 
   <script src="app.js"></script>
 </body>
